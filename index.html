@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional AI Voice Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Animated Background Elements -->
+        <div class="background-elements">
+            <div class="floating-orb orb-1"></div>
+            <div class="floating-orb orb-2"></div>
+            <div class="floating-orb orb-3"></div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="welcome-screen">
+            <div class="welcome-card">
+                <div class="welcome-header">
+                    <div class="ai-icon">
+                        <div class="icon-pulse"></div>
+                        🎙️
+                    </div>
+                    <h1>Professional AI Assistant</h1>
+                    <p>Your intelligent voice companion powered by advanced AI technology</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🗣️</div>
+                        <span>Natural Voice Recognition</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🧠</div>
+                        <span>Intelligent Responses</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <span>Real-time Processing</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎛️</div>
+                        <span>Customizable Settings</span>
+                    </div>
+                </div>
+
+                <div class="conversation-starters">
+                    <h3>Try asking:</h3>
+                    <div class="starter-grid">
+                        <div class="starter-chip">"What time is it?"</div>
+                        <div class="starter-chip">"Calculate 25 × 4"</div>
+                        <div class="starter-chip">"Tell me a joke"</div>
+                        <div class="starter-chip">"How are you?"</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-hero" id="start-button">
+                    <div class="btn-content">
+                        <span>Start Conversation</span>
+                        <div class="btn-arrow">→</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Assistant Interface -->
+        <div id="main-interface" class="main-interface hidden">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div class="app-title">
+                            <div class="title-icon">🎙️</div>
+                            <div class="title-text">
+                                <h2>AI Assistant</h2>
+                                <div class="status-bar">
+                                    <div class="status-indicator" id="status-indicator">
+                                        <div class="status-dot"></div>
+                                        <span class="status-text">Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button class="btn btn-ghost btn-sm" id="clear-chat">
+                            <span class="btn-icon">🗑️</span>
+                        </button>
+                        <button class="btn btn-ghost btn-sm" id="settings-btn">
+                            <span class="btn-icon">⚙️</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Quick Commands Panel -->
+                <div class="quick-commands-panel">
+                    <div class="quick-commands-grid">
+                        <button class="quick-action-btn" data-text="What time is it?">
+                            <div class="action-icon" style="background: var(--accent-blue);">🕒</div>
+                            <span>Time</span>
+                        </button>
+                        <button class="quick-action-btn" data-text="How's the weather?">
+                            <div class="action-icon" style="background: var(--accent-purple);">🌤️</div>
+                            <span>Weather</span>
+                        </button>
+                        <button class="quick-action-btn" data-text="Calculate something">
+                            <div class="action-icon" style="background: var(--accent-teal);">🧮</div>
+                            <span>Calculate</span>
+                        </button>
+                        <button class="quick-action-btn" data-text="Tell me a joke">
+                            <div class="action-icon" style="background: var(--color-success);">😄</div>
+                            <span>Joke</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conversation Container -->
+                <div class="conversation-container">
+                    <div class="conversation-area" id="conversation-area">
+                        <div class="welcome-message">
+                            <div class="message-bubble ai-message">
+                                <div class="message-avatar">
+                                    <div class="avatar-icon">🤖</div>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-text">
+                                        <p>Hello! I'm your professional AI voice assistant. Use the microphone below or select a quick action to get started.</p>
+                                    </div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speech Recognition Display -->
+                    <div class="speech-display" id="speech-display">
+                        <div class="speech-indicator">
+                            <div class="waveform">
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                            </div>
+                        </div>
+                        <div class="speech-text" id="speech-text">Listening...</div>
+                    </div>
+                </div>
+
+                <!-- Voice Control Center -->
+                <div class="voice-control-center">
+                    <div class="microphone-section">
+                        <div class="mic-container">
+                            <button class="microphone-button" id="microphone-button">
+                                <div class="mic-glow-ring"></div>
+                                <div class="mic-inner">
+                                    <div class="mic-icon">🎙️</div>
+                                </div>
+                                <div class="pulse-rings">
+                                    <div class="pulse-ring"></div>
+                                    <div class="pulse-ring"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="mic-status">
+                            <span id="mic-instructions">Click to speak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Settings Panel -->
+        <div id="settings-modal" class="settings-panel hidden">
+            <div class="settings-backdrop"></div>
+            <div class="settings-drawer">
+                <div class="settings-header">
+                    <div class="settings-title">
+                        <h3>Assistant Settings</h3>
+                        <p>Customize your AI experience</p>
+                    </div>
+                    <button class="settings-close" id="close-settings">×</button>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-section">
+                        <div class="section-title">Voice Configuration</div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="voice-select">Voice Selection</label>
+                            <select class="form-control enhanced" id="voice-select">
+                                <option value="21m00Tcm4TlvDq8ikWAM">Rachel - Professional Female</option>
+                                <option value="AZnzlk1XvdvUeBnXmlld">Domi - Confident Assistant</option>
+                                <option value="EXAVITQu4vr4xnSDxMaL">Bella - Warm & Expressive</option>
+                                <option value="ErXwobaYiN019PkySvjV">Antoni - Professional Male</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="speech-speed">
+                                Speech Speed 
+                                <span class="setting-value" id="speed-value">1.0x</span>
+                            </label>
+                            <input type="range" class="range-control" id="speech-speed" min="0.5" max="2" step="0.1" value="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="volume-control">
+                                Volume 
+                                <span class="setting-value" id="volume-value">80%</span>
+                            </label>
+                            <input type="range" class="range-control" id="volume-control" min="0" max="1" step="0.1" value="0.8">
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <div class="section-title">API Configuration</div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="api-key">ElevenLabs API Key</label>
+                            <input type="password" class="form-control enhanced" id="api-key" placeholder="Enter your API key">
+                            <div class="form-help">Your API key is stored locally and never shared</div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <div class="section-title">Preferences</div>
+                        
+                        <div class="form-group">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="continuous-listening" class="toggle-input">
+                                <div class="toggle-switch">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                                <span class="toggle-text">Continuous listening mode</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-footer">
+                    <button class="btn btn-secondary" id="test-voice">
+                        <span class="btn-icon">🔊</span>
+                        Test Voice
+                    </button>
+                    <button class="btn btn-primary" id="save-settings">
+                        <span class="btn-icon">💾</span>
+                        Save Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Error/Success Toast -->
+        <div id="error-toast" class="notification-toast hidden">
+            <div class="toast-content">
+                <div class="toast-icon" id="toast-icon">⚠️</div>
+                <div class="toast-message" id="error-message"></div>
+                <button class="toast-close">×</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
