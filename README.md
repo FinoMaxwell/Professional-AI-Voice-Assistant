@@ -34,7 +34,7 @@ A web-based, modern AI voice assistant built with vanilla JavaScript, HTML and C
 ## Getting Started
 
 ### 1. Clone this repository
-git clone https://github.com/yourusername/professional-ai-voice-assistant.git
+git clone https://github.com/FinoMaxwell/professional-ai-voice-assistant.git
 cd professional-ai-voice-assistant
 
 ### 2. Run Locally
