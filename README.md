@@ -1,6 +1,6 @@
 # Professional AI Voice Assistant
 
-![Landing](v2.png)
+![Landing](v1.png)
 
 A web-based, modern AI voice assistant built with vanilla JavaScript, HTML and CSS, featuring real-time speech recognition and expressive ElevenLabs text-to-speech. Designed with a premium dark UI theme and smooth animations, this project delivers a futuristic and highly accessible voice experience in any modern browser.
 
@@ -23,7 +23,7 @@ A web-based, modern AI voice assistant built with vanilla JavaScript, HTML and C
 
 | Welcome Page                              | Chat Experience                                 |
 |--------------------------------------------|-------------------------------------------------|
-| ![Welcome](v2.png)                        | ![Chat UI](v1.png)                              |
+| ![Welcome](v1.png)                        | ![Chat UI](v2.png)                              |
 
 | Settings Drawer                           | Voice Conversation Example                      |
 |--------------------------------------------|-------------------------------------------------|
